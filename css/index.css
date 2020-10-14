@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan&display=swap');
+.arrowUp {
+    position: absolute;
+    left: 50%;
+    color: white;
+ }
+.affix {
+  top: 0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+.affix + .container-fluid {
+  padding-top: 70px;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  text-indent: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.carousel-indicators .active {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  background-color: white !important;
+}
+
+
+.carousel-item img::before{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42) calc(100% - 150px), rgba(0, 0, 0, 0.55) calc(100% - 60px), rgba(0, 0, 0, 0.67));
+}
+
+.centered { 
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.startBtn:hover {
+  color: white;
+  text-decoration: none;
+  transition-duration: 0.3s;
+
+  transform: scale(1.1);
+}
+
+.startBtn:hover > i {
+  transition-duration: 0.4s;
+  transform: translate(25px) scale(1.15);
+}
+
+.text {
+  font-size: 1.3em;
+  text-align: justify;
+  padding: 0px 20px 0px 20px;
+}
+
+.contentImage {
+  width: 100%;
+  object-fit: cover;
+}
+
+.centered > h2 {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  font-size: 5vh;
+  text-transform: uppercase;
+  font-family: 'Baloo Bhaijaan', cursive;;
+  color: white;
+}
+
+.carousel-caption > h3 {
+  font-size: 4vh;
+}
+
+.carousel-caption > p {
+  font-size: 3vh;
+}
+
+.startBtn {
+  display: inline-block;
+  /*background-color: #ffffff;*/
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  color:white ;
+  padding: 0.7em 0.5em;
+  cursor: pointer;
+  line-height: 1.42;
+  font-size: 5vh;
+  text-decoration: none;
+  font-family: 'Baloo Bhaijaan', cursive;;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+.scaleImg {
+  /*opacity: 0.6;*/
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 60% 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 40px;
+    width: 40px;
+    outline: black;
+    background-color: black;
+    background-size: 75%, 75%;
+    border-radius: 50%;
+}
+
+
+.picutreBlurr {
+  filter: blur(1px);
+  transform: scale(1.01); 
+}

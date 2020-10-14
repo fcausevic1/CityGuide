@@ -1,0 +1,737 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/css/backToTop.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/objekat.css">
+    <title>Vodič kroz grad</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md bg-teal-transparent navbar-dark sticky-top">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">Vodič kroz grad</a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="indexLogin.html#navbar">Početna</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pretragaLogin.html">Pretraga</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Objekat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kontaktLogin.html">Kontakt</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <!-- language dropdown bar -->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" 
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="flag-icon flag-icon-bs"> </span>
+                <img src="img/bs.png" width="30px"> Bosanski</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown09">
+                <a class="dropdown-item" href="#">
+                <img src="img/gb.png" width="30px"> English</a>
+              </div>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link regLog" href="#"><span class="fas fa-user"></span> Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link regLog" href="objekat.html"><span class="fas fa-sign-out-alt"></span> Odjavi se</a>
+          </li>
+
+        </ul>
+        
+      </div>
+    </nav>
+
+
+<div class="container mt-2">
+  <div class="text-center">
+    <h3>Registracija objekta</h3>
+    <h5>Ukoliko želite da prikažete svoj objekat na mapi, unesite podatke ispod te ćemo vas kontaktirati o dodatnim informacijama i slikama te dodatnim lokacijama putem email-a</h5>
+  </div>
+</div>
+  <div class="alert alert-danger fade show" id="objectFail">
+    <button type="button" class="close closeAlert">&times;</button>
+    <strong>Nisu</strong> ispravna sva polja!
+  </div>
+  <div class="alert alert-success fade show" id="objectSucc">
+    <button type="button" class="close closeAlert">&times;</button>
+    <strong>Uspješno</strong> poslana prijava!
+  </div>
+  <div class="formContainer mb-5">
+    <div class="multisteps-form">
+      <!--progress bar-->
+      <div class="row mt-5">
+        <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+          <div class="multisteps-form__progress">
+            <button class="multisteps-form__progress-btn js-active" type="button" title="User Info" id="form1">Osnovni podaci</button>
+            <button class="multisteps-form__progress-btn" type="button" title="Address" id="form2">Kategorije</button>
+            <button class="multisteps-form__progress-btn" type="button" title="Order Info" id="form3">Opis</button>
+            <button class="multisteps-form__progress-btn" type="button" title="Comments" id="form4">Završetak</button>
+          </div>
+        </div>
+      </div>
+      <!--form panels-->
+      <div class="row mb-5">
+        <div class="col-12 col-lg-8 m-auto">
+          <form class="multisteps-form__form">
+            <!--single form panel-->
+            <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn" id="firstPanel">
+              <h3 class="multisteps-form__title">Podaci o objektu</h3>
+              <div class="multisteps-form__content">
+
+                <div class="form-row mt-4">
+                  <div class="col-12 col-sm-6">
+                    <input class="multisteps-form__input form-control" type="text" placeholder="Naziv objekta" required/>
+                    <div class="valid-feedback">Ispravno.</div>
+                    <div class="invalid-feedback">Nije ispravno.</div>
+                  </div>
+                  <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                    <input class="multisteps-form__input form-control" type="text" placeholder="Ulica i broj" required pattern="\s*[a-zA-Z]\s*\w*\s*\d*\s*" />
+                    <div class="valid-feedback">Ispravno.</div>
+                    <div class="invalid-feedback">Nije ispravno.</div>
+                  </div>
+                </div>
+
+                <div class="form-row mt-4">
+                  <div class="col-12 col-sm-6">
+                    <input class="multisteps-form__input form-control" type="tel" placeholder="+387 xxx xxx xxx" required pattern="((\(?\+387\)?)\s*\/?([3-5][0-9]|[6][0-7])|(0)\s*\/?[1-9][0-9])\/?\s*[0-9]{3}-?\s*[0-9]{3}\d?" maxlength="20" />
+                    <div class="valid-feedback">Ispravno.</div>
+                    <div class="invalid-feedback">Molimo unesite ispravan broj telefona.</div>
+                  </div>
+                  <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                    <input class="multisteps-form__input form-control" type="email" placeholder="Email" required />
+                    <div class="valid-feedback">Ispravno.</div>
+                    <div class="invalid-feedback">Polje mora imati validan email.</div>
+                  </div>
+                </div>
+
+                <div class="form-row mt-4">
+                  <div class="col-12 col-sm-6">
+                    <input class="multisteps-form__input form-control" type="text" placeholder="Web stranica" pattern="(https?:\/\/)?(www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)|(https?:\/\/)?(www\.)?(?!ww)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" />
+                    <div class="valid-feedback">Ispravno.</div>
+                    <div class="invalid-feedback">Molimo unesite ispravnu stranicu.</div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                      <div class="custom-control">
+                        <label>Opcija paketa ponude:</label> 
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
+                        <label class="custom-control-label" for="customRadio1">Prvi paket (besplatno)</label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio2">Drugi paket (10KM mjesečno -  slike i željena ikona)
+                        </label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio3">Treci paket (20KM mjesečno - korisnička podrška i panorama slike)
+                        </label>
+                      </div>
+                    </div>
+                      
+                  </div>
+
+                </div>
+
+                <div class="button-row d-flex mt-4">
+                  <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="validateFirst()">Dalje</button>
+                </div>
+              </div>
+            </div>
+            <!--single form panel-->
+            <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn" id="secondPanel">
+              <h3 class="multisteps-form__title">Kategorije</h3>
+              <h6>Ukoliko nema odgovarajuće kategorije za vaš objekat, ostavite prazno te navedite kategoriju u napomeni</h6>
+              <div class="multisteps-form__content">
+                <div class="form-row mt-4">
+                  <div class="col">
+                    <!-- kategorije accordion-->
+                    <div id="accordion">
+            <div class="card" id="card1">
+              <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                <a class="card-link">
+                  Usluge
+                </a>
+              </div>
+              <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col searchable">
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="travel_agency" type="checkbox" value=""> Tura grada</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="parking" type="checkbox" value=""> Parking</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="car_wash" type="checkbox" value=""> Autopraonica</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="gas_station" type="checkbox" value=""> Benzinska pumpa</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="laundry"  type="checkbox" value=""> Pranje veša</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="lodging" type="checkbox" value=""> Hoteli i smještaj</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card" id="card2">
+              <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                <a class="collapsed card-link">
+                  Prodavnice
+                </a>
+              </div>
+              <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col searchable">
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="grocery_or_supermarket" type="checkbox" value=""> Supermarketi</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="home_goods_store" type="checkbox" value=""> Namještaj i kućne stvari</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="jewelry_store" type="checkbox" value=""> Nakit</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="liquor_store" type="checkbox" value=""> Alkohol</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="shopping_mall" type="checkbox" value=""> Tržni centri</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card" id="card3">
+              <div class="card-header" data-toggle="collapse" href="#collapseThree">
+                <a class="collapsed card-link">
+                  Hrana i piće
+                </a>
+              </div>
+              <div id="collapseThree" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col searchable">
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="restaurant" type="checkbox" value=""> Restaurani</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="bar" type="checkbox" value=""> Barovi</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="cafe" type="checkbox" value=""> Cafe</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="bakery" type="checkbox" value=""> Pekare</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="night_club" type="checkbox" value=""> Noćni klubovi</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card" id="card4">
+              <div class="card-header" data-toggle="collapse" href="#collapseFour">
+                <a class="collapsed card-link">
+                  Mjesta
+                </a>
+              </div>
+              <div id="collapseFour" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col searchable">
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="bank" type="checkbox" value=""> Banke</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="atm" type="checkbox" value=""> Bankomati</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="embassy" type="checkbox" value=""> Ambasade</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="gym" type="checkbox" value=""> Teretane</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="library" type="checkbox" value=""> Biblioteke</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="zoo" type="checkbox" value=""> Zoološki vrt</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="museum" type="checkbox" value=""> Muzeji</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card" id="card5">
+              <div class="card-header" data-toggle="collapse" href="#collapseSix">
+                <a class="collapsed card-link">
+                  Transport
+                </a>
+              </div>
+              <div id="collapseSix" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col searchable">
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="bus_station" type="checkbox" value=""> Busevi</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="light_rail_station" type="checkbox" value=""> Tramvaji</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="taxi_stand" type="checkbox" value=""> Taksi</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="car_rental" type="checkbox" value=""> Rent a car</label>
+                      </div>
+                      <div class="checkbox">
+                        <label class="checkbox-inline searchable"><input class="check" name="airport" type="checkbox" value=""> Aerodromi</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <!-- kategorije accordion-->
+                  </div>
+                </div>
+                <div class="button-row d-flex mt-4">
+                  <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Nazad</button>
+                  <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="validateSecond()">Dalje</button>
+                </div>
+              </div>
+            </div>
+            <!--single form panel-->
+            <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn" id="thirdPanel">
+              <h3 class="multisteps-form__title">Opis</h3>
+              <div class="multisteps-form__content">
+                <div class="row">
+                  <div class="col-12 col-md-6 mt-4">
+                    <div class="card shadow-sm">
+                      <div class="card-body">
+                        <h5 class="card-title">Tekst opisa</h5>
+                        <div class="form-row mt-4">
+                          <textarea rows="10" class="multisteps-form__textarea form-control" placeholder="Ukratko opišite svoj objekat" required></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 mt-4">
+                    <div class="card shadow-sm">
+                      <div class="card-body">
+                        <h5 class="card-title">Slika</h5>
+                        <div class="row py-4">
+
+                              <!-- Upload image input-->
+                            <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                                <label id="upload-label" for="upload" class="font-weight-light text-muted text-left my-auto pl-3" style="overflow: hidden; width: 50%;">Izaberi sliku</label>
+                                <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                                <div class="input-group-append">
+                                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Izaberi sliku</small></label>
+                                </div>
+                            </div>
+
+                            <!-- Uploaded image area-->
+                            <div class="image-area mt-4" style="max-height: 70vh;"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
+                            </div>
+
+                        </div>
+                      </div>
+
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="button-row d-flex mt-4 col-12">
+                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Nazad</button>
+                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="validateThird()">Dalje</button>
+                  </div>
+                </div>
+              </div>
+            <!--single form panel-->
+                <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn" id="fourthPanel">
+                  <h3 class="multisteps-form__title">Napomene</h3>
+                  <div class="multisteps-form__content">
+                    <div class="form-row mt-3">
+                      <div class="col-12 col-md-6 mt-4">
+                              <div class="form-row mt-4">
+                              <textarea rows="10" class="multisteps-form__textarea form-control"></textarea>
+                            </div>
+                      </div>
+
+
+                    </div>
+                    <div class="button-row d-flex mt-4">
+                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Nazad</button>
+                      <button class="btn btn-success ml-auto" type="button" title="Send" onclick="validateAll()">
+                          Pošalji
+                      </button>
+                    </div>
+                  </div>
+                </div>
+          </form>
+         </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="modal fade" id="loginToSaveModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header --> 
+        <div class="modal-header">
+          <h4 class="modal-title text-center">Morate se prijaviti da bi registrovali objekat!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="options text-center">
+            <p>Nemate korisnički račun? </p>
+             <button type="button" class="btn btn-primary registerToSaveBtn">Registrujte se</button>
+
+            <p style="margin-top: 20px;">Već imate račun?</p>
+             <button type="button" class="btn btn-primary loginToSaveBtn">Prijavite se</button>
+          </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-second" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+</div>
+
+
+
+<!--Modal: Login / Register Form-->
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active log" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              Prijavi se</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link reg" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Registruj se</a>
+          </li>
+          <li class="nav-item res">
+            <a class="nav-link res" data-toggle="tab" href="#panel9" role="tab"></a>
+          </li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content">
+
+          <!--Panel 7-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Prijava</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <!--Body-->
+
+            <div class="modal-body mb-1">
+              <div class="alert alert-danger fade show" id="loginFail">
+                <button type="button" class="close closeAlert">&times;</button>
+                <strong>Pogrešna</strong> šifra ili korisničko ime!
+              </div>
+              <form action="">
+              <div class="form-group">
+                <label for="uname">Korisničko ime:</label>
+                <input type="text" class="form-control" id="uname" placeholder="Unesite username" name="uname" required>
+                <div class="valid-feedback">Ispravno.</div>
+                <div class="invalid-feedback">Nije ispravno.</div>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Šifra:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Unesite šifru" name="pswd" required>
+                <div class="valid-feedback">Ispravno.</div>
+                <div class="invalid-feedback">Nije ispravno.</div>
+              </div>
+              <div class="form-group form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember"> Zapamti šifru?
+                  </label>
+                </div>
+              <button type="submit" class="btn btn-primary" id="signIn">Prijavi se</button>
+            </form>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Nemate korisnički račun? <a href="#panel8" class="blue-text regFormLink" data-toggle="tab" href="#panel8" role="tab">Registrujte se</a></p>
+                <p>Zaboravili ste  <a id="resetPass" href="#panel9" class="blue-text" data-toggle="tab" href="#panel9" role="tab">Šifru?</a></p>
+
+              </div>
+            </div>
+
+          </div>
+          <!--/.Panel 7-->
+
+          <!--Panel 8-->
+          <div class="tab-pane fade" id="panel8" role="tabpanel">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Registracija</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="alert alert-success fade show" id="regSuccess">
+              <button type="button" class="close closeAlert">&times;</button>
+              <strong>Uspješna</strong> registracija!
+            </div>
+            <!--Body-->
+            <div class="modal-body" id="regFrom">
+              <form action="">
+                <div class="form-group">
+                  <label for="pwd">Ime i prezime:</label>
+                  <input type="text" class="form-control regInput" id="nameSurnameReg" placeholder="Unesite ime i prezime" name="nameSurnameReg" required>
+                  <div class="valid-feedback">Ispravno.</div>
+                  <div class="invalid-feedback">Nije ispravno.</div>
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Email:</label>
+                  <input type="email" class="form-control regInput" id="emailReg" placeholder="Unesite email" name="emailReg" required>
+                  <div class="valid-feedback">Ispravno.</div>
+                  <div class="invalid-feedback">Email mora biti validan.</div>
+                </div>
+                <div class="form-group">
+                  <label for="uname">Korisničko ime:</label>
+                  <input type="text" class="form-control regInput" id="unameReg" placeholder="Unesite username" name="unameReg" required>
+                  <div class="valid-feedback">Ispravno.</div>
+                  <div class="invalid-feedback">Nije ispravno.</div>
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Šifra:</label>
+                  <input type="password" class="form-control regInput" id="pwdReg" placeholder="Unesite šifru" pattern=".{8,64}" name="pswdReg" required>
+                  <div class="valid-feedback">Ispravno.</div>
+                  <div class="invalid-feedback">Min 8 karaktera.</div>
+                </div>
+                <div class="form-group form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input regInput check-control" type="checkbox" name="agree" required> Prihvatam uslove korištenja te pravila o korištenju podataka
+                    <div class="valid-feedback">Ispravno.</div>
+                    <div class="invalid-feedback">Nije ispravno.</div>
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary" id="registerBtn">Registruj se</button>
+              </form>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-right">
+                <p class="pt-1">Već imate račun? <a href="#panel7" class="blue-text loginFormLink" data-toggle="tab" role="tab">Prijavite se</a></p>
+              </div>
+            </div>
+          </div>
+          <!--/.Panel 8-->
+
+
+
+
+          <!--Panel 9-->
+          <div class="tab-pane fade" id="panel9" role="tabpanel">
+            <div class="modal-header text-center">
+              <button class="btn btn-light loginFormLink" type="button"><a href="#panel7" class="loginFormLink" data-toggle="tab" role="tab"><i aria-hidden="true" class="fas fa-chevron-left"></i></a></button>
+              
+              <h4 class="modal-title w-100 font-weight-bold">Resetovanje sifre</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+              <div class="col-md-12">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="text-center">
+                        <div class="alert alert-success fade show">
+                          <button type="button" class="close closeAlert">&times;</button>
+                          <strong>Uspješno</strong> poslan email!
+                        </div>
+                        <p>Unesite svoj email da bi resetovali svoju šifru.</p>
+                          <div class="panel-body">
+                              <form action="">
+                                <fieldset>
+                                  <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Unesite email" name="emailRes" required>
+                                    <div class="valid-feedback mail">Ispravno.</div>
+                                    <div class="invalid-feedback">Nije ispravno.</div>
+                                  </div>
+                                  <input class="btn btn-lg btn-primary btn-block sent" value="Pošalji">
+                                <fieldset>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <!--/.Panel 9-->
+
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login / Register Form-->
+
+
+
+
+<div style="clear:both;"></div>
+<!-- Footer -->
+  <section id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 text-white">
+            <h4>Newsletter</h4>
+            <p>Pretplatite se ukoliko želite da dobivate promocije i novosti</p>
+          </div>
+          <div class="col-lg-6">
+            <form id="newsForm">
+              <input class="form-control newsInput" type="email" name="email" placeholder="E-mail@primjer.com" required>
+              <input type="submit" value="Pretplatite se" id="sendNewsLetter">
+            </form>
+            <div class="alert alert-success fade show" id="newsLetterSent">
+              <button type="button" class="close closeAlert">&times;</button>
+              <strong>Uspješna</strong> pretplata na newsletter!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hr">
+    </div>
+    <div  id="footer-content">
+
+      <div class="container pt-3">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>Kontakt</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a><i class="fas fa-phone"></i> Telefon: +387 62/123-656</a></li>
+              <li><a><i class="fas fa-home"></i> Adresa: Zmaja od Bosne bb</a></li>
+              <li><a><i class="fa fa-envelope  "></i> Email: vodic_kroz_grad@info.ba</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>Radno vrijeme</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a><i class="fas fa-clock"></i> Pon-pet: 09h-17h</a></li>
+              <li><a><i class="fas fa-clock"></i> Sub: 10h-13h</a></li>
+              <li><a><i class="fas fa-clock"></i> Nedjeljom ne radimo!</a></li>
+              <li><a><i class="fas fa-clock"></i> Pauza radnim danom: 11:30h-12:00h</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            <ul class="list-unstyled list-inline social text-center">
+              <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+            </ul>
+          </div>
+          </hr>
+        </div>  
+      </div>
+    </div>
+    <div class="hr">
+      </div>
+    <div class="container">
+      <div class="copyright">
+        © Copyright <strong><span>Vodič kroz grad</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Dizajnirano od <a href="http://www.etf.unsa.ba/">Elektrotehničkog fakulteta</a>
+      </div>
+    </div>
+
+  </section>
+  <!-- Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <!--Vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script src="js/form.js"></script>
+    <script src="js/objekatLogin.js"></script>
+    <script src="js/uploadImage.js"></script>
+    <script src="js/validateInput.js"></script>
+    <script src="assets/js/backToTop.js"></script>
+  </body>
+</html>
