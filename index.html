@@ -1,31 +1,633 @@
-//function to open register form when register is clicked instead of login form
-$('.regLog').click(function(e){
-    var tab = e.target.hash; 
-    $('li > a[href="' + tab + '"]').tab("show");
-});
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
 
-$(".loginFormLink").click(function(e){
-	$(".log").click();
-});
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-$(".regFormLink").click(function(e){
-	$(".reg").click();
-});
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/backToTop.css" rel="stylesheet">
 
-$("#resetPass").click(function(e){
-	$(".res").click();
-});
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/index.css">
+    
 
-$(".sent").click(function(e){
-	if($(".mail").css("display")!="none") {
-		$('.alert').show();	
-	}
-});
 
-$(".closeAlert").click(function(e){
-	$('.alert').hide();
-});
 
-$( ".passRecover" ).submit(function( event ) {
-  event.preventDefault();
-});
+
+
+    <title>Vodič kroz grad</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-teal-transparent" id="header">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#top">Vodič kroz grad</a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Početna</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pretraga.html">Pretraga</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="objekat.html">Objekat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kontakt.html">Kontakt</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <!-- language dropdown bar -->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" 
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="flag-icon flag-icon-bs"> </span>
+                <img src="img/bs.png" width="30px"> Bosanski</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown09">
+                <a class="dropdown-item" href="#">
+                <img src="img/gb.png" width="30px"> English</a>
+              </div>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link regLog" href="#panel8" data-toggle="modal" data-target="#modalLRForm" ><span class="fas fa-user"></span> Registracija</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link regLog" href="#panel7" data-toggle="modal" data-target="#modalLRForm" ><span class="fas fa-sign-in-alt"></span> Prijava</a>
+          </li>
+
+        </ul>
+        
+      </div>
+    </nav>
+
+
+  <section id="hero" class="d-flex justify-cntent-center align-items-center">
+    <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animated fadeInDown">Dobrodošli na <span>Vodič kroz grad</span></h2>
+          <p class="animated fadeInUp">Ova stranica vam mogućava da pretražite sve vrste objekata i usluga kao i ulice te mjesta u vašoj okolini.</p>
+          <a href="pretraga.html" class="btn-get-started animated fadeInUp">Započni pretragu</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animated fadeInDown">Registracija objekta</h2>
+          <p class="animated fadeInUp">Mi vam omogućavamo da prikažete svoj objekat na mapi te ga na taj način promivišete zajedno sa uslugama koje nudite.</p>
+          <a href="objekat.html" class="btn-get-started animated fadeInUp">Registruj objekat</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animated fadeInDown">Kontakt</h2>
+          <p class="animated fadeInUp">Za sva pitanja i nejasnoće kao i molbe možete nas kontaktirati.</p>
+          <a href="kontakt.html" class="btn-get-started animated fadeInUp">Kotnaktirajte nas</a>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="service-details">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <img src="assets/img/service-details-4.jpg" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">Naše usluge</a></h5>
+              <p class="card-text">Nudimo uslugu pretraživanja objekata i sadržaja na željenoj lokaciji kao i spašavanje iste pretrage te registrovanje ličnog objekta u cilju promocije.</p>
+              <!--<div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>-->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <img src="assets/img/service-details-1.jpg" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">Naš cilj</a></h5>
+              <p class="card-text">Cilj ove stranice je da olakša pronalazak željenog sadržaja u okolini korisnika, nezavisno od lokacije što čini ovu stranicu pogodnom za korištenje u inostranstvu.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <img src="assets/img/service-details-2.jpg" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">Naš plan</a></h5>
+              <p class="card-text">Kvalitet pronalaska sadržaja daleko zavisi od broja korisnika te nam je plan povećati broj korisnika i time ubrzati pronalazak željenog sadržaja.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <img src="assets/img/service-details-3.jpg" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">Responzivnost</a></h5>
+              <p class="card-text">Ova stranica je napravljena u vidu da će joj korisnici pristupati koristeći razne uređaje različitih veličina te se sadržaj automatski skalira u cilju poboljšanja vidljivosti.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+  </section>
+
+    <!-- cards--> 
+  <section class="services">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up">
+            <div class="icon-box icon-box-pink">
+              <div class="icon"><i class="bx bxs-info-circle"></i></div>
+              <h4 class="title"><a href="">Sigurnost podataka</a></h4>
+              <p class="description">Svi vaši lični podaci se nalaze na sigurnom serveru i pristupa im se na siguran način što smanjuje šansu da oni procure u javnost. </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box icon-box-cyan">
+              <div class="icon"><i class="bx bx-message-dots"></i></div>
+              <h4 class="title"><a href="">Pomoć korisnicima</a></h4>
+              <p class="description">Naši uposlenici su raspoloživi da vam pomognu pri ažuriranju podataka ili nečemu drugom.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box icon-box-green">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4 class="title"><a href="">Brzina</a></h4>
+              <p class="description">Naša baza sadrži veliki broj sadržaja i objekata što ubrzava i povećava šansu da ćete naći ono što vas interesuje.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4 class="title"><a href="">Dostupnost</a></h4>
+              <p class="description">Naša usluga je dostupna bilo gdje i bilo kada, sve što je potrebno je računar ili mobilni uređaj te aktivna internet konekcija.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+  </section>
+  <!--cards end--> 
+
+
+  <section class="pricing section-bg aos-init aos-animate" data-aos="fade-up">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Cjenovnik</h2>
+        <p>Da bi registrovali objekat možete odabrati besplatni paket ili se pretplatiti za dodatne pogodnosti</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4 box">
+          <h3>Besplatni paket</h3>
+          <h4>0 KM<span>mjesečno</span></h4>
+          <ul>
+            <li><i class="bx bx-check"></i> Registrovanje objekta</li>
+            <li><i class="bx bx-check"></i> Naslovna slika</li>
+            <li class="na"><i class="bx bx-x"></i> <span>Željena ikonica na mapi</span></li>
+            <li class="na"><i class="bx bx-x"></i> <span>Dodatne slike</span></li>
+            <li class="na"><i class="bx bx-x"></i> <span>Korisnička podrška</span></li>
+            <li class="na"><i class="bx bx-x"></i> <span>Panorama slike</span></li>
+          </ul>
+          <a href="#" class="get-started-btn">Započni</a>
+        </div>
+
+        <div class="col-lg-4 box featured">
+          <h3>Početni paket</h3>
+          <h4>10 KM<span>mjesečno</span></h4>
+          <ul>
+            <li><i class="bx bx-check"></i> Registrovanje objekta</li>
+            <li><i class="bx bx-check"></i> Naslovna slika</li>
+            <li><i class="bx bx-check"></i> Željena ikonica na mapi</li>
+            <li><i class="bx bx-check"></i> Dodatne slike</li>
+            <li class="na"><i class="bx bx-x"></i> <span>Korisnička podrška</span></li>
+            <li class="na"><i class="bx bx-x"></i> <span>Panorama slike</span></li>
+          </ul>
+          <a href="#" class="get-started-btn">Započni</a>
+        </div>
+
+        <div class="col-lg-4 box">
+          <h3>Business paket</h3>
+          <h4>20 KM<span>mjesečno</span></h4>
+          <ul>
+            <li><i class="bx bx-check"></i> Registrovanje objekta</li>
+            <li><i class="bx bx-check"></i> Naslovna slika</li>
+            <li><i class="bx bx-check"></i> Željena ikonica na mapi</li>
+            <li><i class="bx bx-check"></i> Dodatne slike</li>
+            <li><i class="bx bx-check"></i> Korisnička podrška</li>
+            <li><i class="bx bx-check"></i> Panorama slike</li>
+          </ul>
+          <a href="#" class="get-started-btn">Započni</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <div class="container-fluid my-5">
+    <h1>Zašto posjetiti Sarajevo</h1>
+    <div class="row my-5 aos-init aos-animate" data-aos="fade-down">
+      <div class="col-lg-4 col-md-12 order-lg-1 order-md-2 order-sm-2">
+        <img src="img/vijecnica.jpg" alt="Error loading picture" class="contentImage">
+      </div>
+      <div class="col-lg-8 col-md-12 order-lg-2 order-md-1 order-sm-1">
+        <h2>Vijećnica</h2> <br>
+        <p class="text">Sarajevska vijećnica je zgrada u Sarajevu nedaleko od Baščaršije na Mustaj-pašinom mejdanu i predstavlja jedan od najljepših i najreprezentativnijih objekata iz austrougarskog perioda građen u pseudo-maurskom stilu. U ovom stilu rađena je većina objekata što ih je u Sarajevu ostavila austrougarska vlast, a sinonim je za austrougarski period u Bosni i Hercegovini i zaštitni znak tog vremena. Prvi projekat je uradio Karlo Paržik, a kako se ovaj nije svidio ministru Benjaminu Kalaju, izrada novog je povjerena Alexandru Witteku. Kao uzor u izradi ovog projekta poslužila mu je džamija Kemala II zbog čega je dva puta odlazio u Kairo. Kako je Witek navodno, upravo zbog ovog projekta (nedovoljnog osvjetljenja u glavnoj auli zgrade), umno obolio i izvršio samoubistvo, završetak njegovog projekta je povjeren 1894. godine Ćirilu M. Ivekoviću. Uporedo sa izradom i razradom projekta tekla je i izgradnja objekta od 1892. do 1894. godine. Objekat gradske vijećnice zvanično je predat na upotrebu 1896. godine. Nakon što je obnovljena, Vijećnica je ponovo otvorena 9. maja 2014. godine. 
+        </p>
+      </div>
+    </div>
+
+
+    <div class="row my-5 py-5 aos-init aos-animate" data-aos="fade-down">
+      <div class="col-lg-8 col-md-12">
+        <h2>Latinska ćuprija</h2> <br>
+        <p class="text">
+          Latinska ćuprija (od 1918-1992 nosio naziv Principov most) je sarajevski most iz osmanlijskog perioda. Jedan je od najstarijih mostova u Sarajevu. Mijenjao se vremenom, od prvog drvenog mosta, koji je stajao na istom tom mjestu, pa sve do današnjeg oblika. Prvi most na ovom mjestu je bio od drveta i spominje se u popisu Bosanskog Sandžaka iz 1541. Sagradio ga je sarač Husein, sin nekog Širmerda. Kameni most gradi sarajevski ajan Ali Ajni-beg godine 1565. Poplava koja je pogodila Sarajevo 1791. oštetila je most, a sredstva za njegovu obnovu izdvaja Hadži Abdulah Briga. Obnova je uslijedila 1798/99. godine. U obnovi su učestvovali domaći majstori, kako se spominje u tadašnjim dokumentima. Smatra se da je most imao četiri stuba na kojima je ležalo pet lukova, ali regulacijom Miljacke u XIX vijeku jedan stub biva zazidan, a ćuprija ostaje sa četiri luka. U masi iznad pilona možemo vidjeti dva olakšavajuća okulusa, koje vidimo i kao jedan od simbola grada u grbu Sarajeva. U doba Austro-Ugarske mostu su dodani konzolni trotoari. Građen je od sedre i krečnjaka.
+        </p>
+      </div>  
+      <div class="col-lg-4 col-md-12">
+        <img src="img/principovmost.jpg" alt="Error loading picture" class="contentImage">
+      </div>
+    </div>  
+
+    <div class="row my-5 py-5 aos-init aos-animate" data-aos="fade-down">
+      <div class="col-lg-4 col-md-12 order-lg-1 order-md-2 order-sm-2">
+        <img src="img/sahatkula.jpg" alt="Error loading picture" class="contentImage">
+      </div>
+      <div class="col-lg-8 col-md-12 order-lg-2 order-md-1 order-sm-1">
+        <h2>Sahat-kula</h2> <br>
+        <p class="text">
+          Sahat-kula je kula karakteristična za bosanske čaršije ali i za druga mjesta koja su bila pod vlašću ili uticajem Osmanlijske imperije. Naime sahat-kule su građene isključivo u evropskom dijelu Osmanskog carstva, naročito u Bosni i Hercegovini što je bila islamska varijacija na zapadnoevropsku formu zvonika te je sahat-kula simbolična graditeljska osobina Bosne i Hercegovine. Sahat-kule su građene uglavnom sa velikim satom na jednom ili više lica objekta (obično na četiri lica) kako bi veći broj stanovnika određenog mjesta mogao čitati vrijeme. Sahat-kula je arhaični izraz u bosanskom jeziku i odnosni se na specifične građevine izgrađene pretežno na području Bosne i Hercegovine. Prema jednom putopiscu iz Francuske iz 16. vijeka , prva sahat-kula podignuta je u Skoplju između 1566. i 1572. godine. Sahat-kule su najčešće građene u centralnim zonama čaršije, i to uz džamije, kao zadužbine pojedinih vakifa, mada ih ima i na drugim mjestima, poput sahat-kule u Maglaju koja je podignuta u oboru maglajske utvrde, ili onih u Tešnju, Gradačcu ili Počitelju. 
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!--Modal: Login / Register Form-->
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active log" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              Prijavi se</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link reg" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Registruj se</a>
+          </li>
+          <li class="nav-item res">
+            <a class="nav-link res" data-toggle="tab" href="#panel9" role="tab"></a>
+          </li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content">
+
+          <!--Panel 7-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Prijava</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <!--Body-->
+
+            <div class="modal-body mb-1">
+              <div class="alert alert-danger fade show" id="loginFail">
+                <button type="button" class="close closeAlert">&times;</button>
+                <strong>Pogrešna</strong> šifra ili korisničko ime!
+              </div>
+              <form action="" >
+              <div class="form-group">
+                <label for="uname">Korisničko ime:</label>
+                <input type="text" class="form-control" id="uname" placeholder="Unesite username" name="uname" required>
+                <div class="valid-feedback">Ispravno.</div>
+                <div class="invalid-feedback">Nije ispravno.</div>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Šifra:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Unesite šifru" name="pswd" required>
+                <div class="valid-feedback">Ispravno.</div>
+                <div class="invalid-feedback">Nije ispravno.</div>
+              </div>
+              <div class="form-group form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember"> Zapamti šifru?
+                  </label>
+                </div>
+              <button type="submit" class="btn btn-primary" id="signIn">Prijavi se</button>
+            </form>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Nemate korisnički račun? <a href="#panel8" class="blue-text regFormLink" data-toggle="tab" href="#panel8" role="tab">Registrujte se</a></p>
+                <p>Zaboravili ste  <a id="resetPass" href="#panel9" class="blue-text" data-toggle="tab" href="#panel9" role="tab">Šifru?</a></p>
+
+              </div>
+            </div>
+
+          </div>
+          <!--/.Panel 7-->
+
+          <!--Panel 8-->
+          <div class="tab-pane fade" id="panel8" role="tabpanel">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Registracija</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="alert alert-success fade show" id="regSuccess">
+              <button type="button" class="close closeAlert">&times;</button>
+              <strong>Uspješna</strong> registracija!
+            </div>
+            <!--Body-->
+            <div class="modal-body" id="regFrom">
+              <form action="">
+                <div class="form-group">
+                  <label for="pwd">Ime i prezime:</label>
+                  <input type="text" class="form-control regInput" id="nameSurnameReg" placeholder="Unesite ime i prezime" name="nameSurnameReg" required>
+                  <div class="valid-feedback">Ispravno.</div>
+                  <div class="invalid-feedback">Nije ispravno.</div>
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Email:</label>
+                  <input type="email" class="form-control regInput" id="emailReg" placeholder="Unesite email" name="emailReg" required>
+                  <div class="valid-feedback">Ispravno.</div>
+                  <div class="invalid-feedback">Email mora biti validan.</div>
+                </div>
+                <div class="form-group">
+                  <label for="uname">Korisničko ime:</label>
+                  <input type="text" class="form-control regInput" id="unameReg" placeholder="Unesite username" name="unameReg" required>
+                  <div class="valid-feedback">Ispravno.</div>
+                  <div class="invalid-feedback">Nije ispravno.</div>
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Šifra:</label>
+                  <input type="password" class="form-control regInput" id="pwdReg" placeholder="Unesite šifru" pattern=".{8,64}" name="pswdReg" required>
+                  <div class="valid-feedback">Ispravno.</div>
+                  <div class="invalid-feedback">Min 8 karaktera.</div>
+                </div>
+                <div class="form-group form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input regInput check-control" type="checkbox" name="agree" required> Prihvatam uslove korištenja te pravila o korištenju podataka
+                    <div class="valid-feedback">Ispravno.</div>
+                    <div class="invalid-feedback">Nije ispravno.</div>
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary" id="registerBtn">Registruj se</button>
+              </form>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-right">
+                <p class="pt-1">Već imate račun? <a href="#panel7" class="blue-text loginFormLink" data-toggle="tab" role="tab">Prijavite se</a></p>
+              </div>
+            </div>
+          </div>
+          <!--/.Panel 8-->
+
+
+
+
+          <!--Panel 9-->
+          <div class="tab-pane fade" id="panel9" role="tabpanel">
+            <div class="modal-header text-center">
+              <button class="btn btn-light loginFormLink" type="button"><a href="#panel7" class="loginFormLink" data-toggle="tab" role="tab"><i aria-hidden="true" class="fas fa-chevron-left"></i></a></button>
+              
+              <h4 class="modal-title w-100 font-weight-bold">Resetovanje sifre</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+              <div class="col-md-12">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="text-center">
+                        <div class="alert alert-success fade show">
+                          <button type="button" class="close closeAlert">&times;</button>
+                          <strong>Uspješno</strong> poslan email!
+                        </div>
+                        <p>Unesite svoj email da bi resetovali svoju šifru.</p>
+                          <div class="panel-body">
+                              <form action="" class="was-validated passRecover">
+                                <fieldset>
+                                  <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Unesite email" name="emailRes" required>
+                                    <div class="valid-feedback mail">Ispravno.</div>
+                                    <div class="invalid-feedback">Nije ispravno.</div>
+                                  </div>  
+                                  <input class="btn btn-lg btn-primary btn-block sent" value="Pošalji">
+                                <fieldset>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <!--/.Panel 9-->
+
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login / Register Form-->
+
+
+
+
+
+
+
+
+
+
+
+
+  <div style="clear:both;"></div>
+
+  
+
+<!-- Footer -->   
+  <section id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 text-white">
+            <h4>Newsletter</h4>
+            <p>Pretplatite se ukoliko želite da dobivate promocije i novosti</p>
+          </div>
+          <div class="col-lg-6">
+            <form id="newsForm">
+              <input class="form-control newsInput" type="email" name="email" placeholder="E-mail@primjer.com" required>
+              <input type="submit" value="Pretplatite se" id="sendNewsLetter">
+            </form>
+            <div class="alert alert-success fade show" id="newsLetterSent">
+              <button type="button" class="close closeAlert">&times;</button>
+              <strong>Uspješna</strong> pretplata na newsletter!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hr">
+    </div>
+    <div  id="footer-content">
+
+      <div class="container pt-3">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>Kontakt</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a><i class="fas fa-phone"></i> Telefon: +387 62/123-656</a></li>
+              <li><a><i class="fas fa-home"></i> Adresa: Zmaja od Bosne bb</a></li>
+              <li><a><i class="fa fa-envelope  "></i> Email: vodic_kroz_grad@info.ba</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>Radno vrijeme</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a><i class="fas fa-clock"></i> Pon-pet: 09h-17h</a></li>
+              <li><a><i class="fas fa-clock"></i> Sub: 10h-13h</a></li>
+              <li><a><i class="fas fa-clock"></i> Nedjeljom ne radimo!</a></li>
+              <li><a><i class="fas fa-clock"></i> Pauza radnim danom: 11:30h-12:00h</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            <ul class="list-unstyled list-inline social text-center">
+              <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+            </ul>
+          </div>
+          </hr>
+        </div>  
+      </div>
+    </div>
+    <div class="hr">
+      </div>
+    <div class="container">
+      <div class="copyright">
+        © Copyright <strong><span>Vodič kroz grad</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Dizajnirano od <a href="http://www.etf.unsa.ba/">Elektrotehničkog fakulteta</a>
+      </div>
+    </div>
+
+  </section>
+  <!-- Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/venobox/venobox.min.js"></script>
+    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="assets/vendor/counterup/counterup.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/backToTop.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/validateInput.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
